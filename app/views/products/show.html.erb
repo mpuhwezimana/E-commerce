@@ -6,6 +6,10 @@
 
 <h2><%= @product.name %></h2>
 <h2><%= @product.description %></h2>
-<h2><%= @product.price %></h2>
+<h2>$<%= @product.price %></h2>
 <h2> <%= @product.updated_at %> </h2>
-<img src="<%= @product.image %>">
+<% if @product.supplier_id == "nil" %> 
+  <h2> Unkown supplier</h2> 
+<% else %>
+<h2> Supplier: <%= @product.supplier_id =%> </h2>
+<% end %>

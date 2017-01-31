@@ -1,11 +1,21 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.all   
+    if params[:sort]
+      @products = Product.all.order(price: params[:sort])
+    elsif params[:filter] == "discount"
+      @products = Product.where("price < ?", 500)      
+    else
+      @products = Product.all
+    end
   end
 
   def show
-    @product = Product.find_by(id: params[:id])
+    if params[:id] = "random"
+      @product = Product.all.sample
+    else 
+      @product = Product.find_by(id: params[:id])
+    end 
   end
 
   def new
@@ -34,7 +44,8 @@ class ProductsController < ApplicationController
     product.image = params[:image]
     product.save
     redirect_to "/products/#{product.id}"
-    flash[:info]= "Product updated"   end
+    flash[:info]= "Product updated"
+    end
 
   def destroy
     @product = Product.find_by(id: params[:id])
@@ -42,4 +53,13 @@ class ProductsController < ApplicationController
     redirect_to "/products"
     flash[:warning]= "Product destroyed"
   end
+end
+
+def search
+  search_query = params[:search_input]
+  @products = Product.where("name LIKE ? OR description LIKE ?", "%#{search_query}%", "%#{search_query}%")
+  if @products.empty?
+    flash[:info] = "Sorry, No product found in search"
+  end
+    render "index.html.erb"
 end
