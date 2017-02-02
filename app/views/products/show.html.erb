@@ -13,3 +13,6 @@
 <% else %>
 <h2> Supplier: <%= @product.supplier_id =%> </h2>
 <% end %>
+<% @product.images.each do |image| %>
+  <img href="<%image.url%>">
+<%end %>
