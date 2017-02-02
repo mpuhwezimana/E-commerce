@@ -30,9 +30,9 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
 
-            <li><a href="/signup">Sign Up</a></li>
+            <li><a class="white" href="/signup">Sign Up</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <a href="#" class="white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="/products">All Products</a></li>
                 <li><a href="/products?sort=asc">Price Lowest To Highest<span class="sr-only">(current)</span></a></li>
@@ -40,7 +40,7 @@
                 <li><a href="/products?filter=discount">Discount Items<span class="sr-only">(current)</span></a></li>
                 <li><a href="/products/random">Random Product</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
+                <li><a href="/products/new">New Product</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#">One more separated link</a></li>
               </ul>
@@ -55,9 +55,9 @@
           <% end %>
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/logout">Logout</a></li>
+            <li class= "white"><a href="/logout">Logout</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <a href="#" class="white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Action</a></li>
                 <li><a href="#">Another action</a></li>
@@ -71,6 +71,12 @@
       </div><!-- /.container-fluid -->
     </nav>
     <div class="container">
+  </nav>
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+    <p> @Copyright reserved to Apple Store Rwanda</p>            
+  </div>
+  </nav>
       <%= yield %>
     </div>
   </body>

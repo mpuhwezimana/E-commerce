@@ -45,7 +45,7 @@ class ProductsController < ApplicationController
     product.save
     redirect_to "/products/#{product.id}"
     flash[:info]= "Product updated"
-    end
+  end
 
   def destroy
     @product = Product.find_by(id: params[:id])
@@ -53,13 +53,13 @@ class ProductsController < ApplicationController
     redirect_to "/products"
     flash[:warning]= "Product destroyed"
   end
-end
 
-def search
-  search_query = params[:search_input]
-  @products = Product.where("name LIKE ? OR description LIKE ?", "%#{search_query}%", "%#{search_query}%")
-  if @products.empty?
-    flash[:info] = "Sorry, No product found in search"
+  def search
+    search_query = params[:search_input]
+    @products = Product.where("name LIKE ? OR description LIKE ?", "%#{search_query}%", "%#{search_query}%")
+    if @products.empty?
+      flash[:info] = "No products found in search"
+    end
+    render :index
   end
-    render "index.html.erb"
 end
