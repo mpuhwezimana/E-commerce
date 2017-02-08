@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
     else
       @products = Product.all
     end
+    @suppliers = Supplier.all
   end
 
   def show
@@ -25,8 +26,8 @@ class ProductsController < ApplicationController
     name = params[:name]
     description = params[:description]
     price = params[:price]
-    image = params[:image]
-    product = Product.new({name: name, description: description, price: price})
+    supplier = params[:supplier_id]
+    product = Product.new({name: name, description: description, price: price })
     product.save
     redirect_to "/products/#{product.id}" 
     flash[:success]= "Product created"

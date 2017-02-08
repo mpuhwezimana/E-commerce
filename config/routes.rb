@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   post "/orders", to: 'orders#create'
   get "/orders/:id", to: 'orders#show'
 
-  post "/carted_products" to:'carted_products#create'
+  get "/carted_products", to: 'carted_products#index'
+  post "/carted_products", to: 'carted_products#create'
 end

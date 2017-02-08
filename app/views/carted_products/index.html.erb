@@ -1,0 +1,16 @@
+<div class="container">
+<div class="row">
+  <% @carted_product.each_slice(3) do |three_carted_products| %>
+    <div class="row">
+        <% three_carted_products.each do |carted_product| %>
+          <div class="col-md-4">
+            <h2>Product: <%= carted_product.product.name %></h2>
+            <img src="<%= carted_product.product.images.first.url %>" class="img-responsive">
+            <h2>Quantity: <%= carted_product.order.quantity %></h2>
+            <h2>Price: $<%= carted_product.order.total %></h2>
+          </div>
+        <% end %>
+    </div>
+  <% end %>
+</div>
+</div>
