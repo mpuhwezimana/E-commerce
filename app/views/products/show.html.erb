@@ -1,6 +1,6 @@
 <%= button_to "Delete", "/products/#{@product.id}", method: :delete %>
-
 <%= button_to "Edit", "/products/#{@product.id}/edit", method: :get %>
+
 <h2><%= @product.name %></h2>
 <h2><%= @product.description %></h2>
 <h2>$<%= @product.price %></h2>
@@ -8,8 +8,8 @@
 <% if @product.supplier_id == "nil" %> 
   <h2> Unkown supplier</h2> 
 <% else %>
-<h2> Supplier: <%= @product.supplier_id =%> </h2>
+<h2> Supplier: <%= @product.supplier.name =%> </h2>
 <% end %>
 <% @product.images.each do |image| %>
-  <img href="<%image.url%>">
+  <img class="show-images" src="<%= image.url %>">
 <%end %>
