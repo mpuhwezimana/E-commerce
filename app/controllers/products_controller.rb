@@ -12,14 +12,16 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @supplier = Supplier.all
     if params[:id] = "random"
       @product = Product.all.sample
     else 
       @product = Product.find_by(id: params[:id])
-    end 
+    end
   end
 
   def new
+    @suppliers = Supplier.all
   end
 
   def create

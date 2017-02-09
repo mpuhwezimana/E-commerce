@@ -1,7 +1,7 @@
 class CartedProductsController < ApplicationController
 
   def index
-    @carted_product = CartedProduct.all    
+    @carted_products = current_user.orders.find_by(completed: false).carted_products 
   end
 
   def create

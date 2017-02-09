@@ -11,7 +11,7 @@
     Price: <input type="text" name="price" value="<%= @product.price %>">
   </div>
   <div>
-    Image: <input type="text" name="image" value="<%= @product.image %>">
+    Image: <input type="text" name="image" value="<%= @product.images.first.url %>">
   </div>
   <div>
     <input type="submit" value="Update Product">
