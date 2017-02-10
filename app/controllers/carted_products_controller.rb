@@ -1,7 +1,11 @@
 class CartedProductsController < ApplicationController
-
+  before_action :authenticate_user!
   def index
-    @carted_products = current_user.orders.find_by(completed: false).carted_products 
+    @order = current_user.orders.find_by(completed: false)
+    unless @order
+      flash[:warning] = "You don't have any products in your shopping cart"
+      redirect_to "/"
+    end 
   end
 
   def create
