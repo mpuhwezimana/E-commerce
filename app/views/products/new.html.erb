@@ -1,5 +1,13 @@
 <h1>New product to be sold:</h1>
 
+<ul>
+  <% if @product.errors.any? %>
+    <% @product.errors.full_messages.each do |message| %>
+      <li class="errors"><%= message %></li> 
+    <% end %>
+  <% end %>
+</ul>
+
 <%= form_tag "/products", method: :post do %>
   <div>
     Name: <input type="text" name="name">

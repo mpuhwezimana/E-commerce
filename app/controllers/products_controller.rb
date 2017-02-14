@@ -13,10 +13,12 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find_by(id: params[:id])
+    @suppliers = Supplier.all
   end
 
   def new
     @suppliers = Supplier.all
+    @product = Product.new
   end
 
   def create
@@ -24,25 +26,37 @@ class ProductsController < ApplicationController
     description = params[:description]
     price = params[:price]
     supplier = params[:supplier_id]
-    product = Product.new({name: name, description: description, price: price })
-    product.save
-    redirect_to "/products/#{product.id}" 
+    @product = Product.new({name: name, description: description, price: price })
+    if @product.save
+    redirect_to "/products/#{@product.id}" 
     flash[:success]= "Product created"
+    else
+      @suppliers = Supplier.all
+      flash[:warning] = "Product NOT Created"
+      render :new
+    end 
   end
 
   def edit
     @product = Product.find_by(id: params[:id])
+    @suppliers = Supplier.all
   end
 
   def update
-    product = Product.find_by(id: params[:id])
-    product.name = params[:name]
-    product.description = params[:description]
-    product.price = params[:price]
-    product.image = params[:image]
-    product.save
-    redirect_to "/products/#{product.id}"
-    flash[:info]= "Product updated"
+    @product = Product.find_by(id: params[:id])
+    @product.name = params[:name]
+    @product.description = params[:description]
+    @product.price = params[:price]
+    @supplier = params[:supplier_id]
+    if @product.save
+      redirect_to "/products/#{@product.id}"
+      flash[:info]= "Product updated"
+    else
+      @suppliers = Supplier.all
+      flash[:warning] = "Product NOT Updated"
+      render :edit
+    end 
+
   end
 
   def destroy

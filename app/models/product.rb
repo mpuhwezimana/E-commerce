@@ -3,8 +3,8 @@ class Product < ApplicationRecord
   has_many :images
   has_many :orders, through: :carted_product
   has_many :carted_products
-  validates :name, presence: true
-  validates :price, presence: true
+  validates :name, presence: { message: "You can't leave Name space empty!" }
+  validates :price, presence: true 
   validates :price, numericality: {greater_than: 0}
 
   def tax
