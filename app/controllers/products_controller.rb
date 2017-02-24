@@ -56,7 +56,6 @@ class ProductsController < ApplicationController
       flash[:warning] = "Product NOT Updated"
       render :edit
     end 
-
   end
 
   def destroy
