@@ -1,16 +1,23 @@
-<div class="container">
 <div class="row">
-  <% @carted_products.each_slice(3) do |three_carted_products| %>
-    <div class="row">
-        <% three_carted_products.each do |carted_product| %>
-          <div class="col-md-4">
-            <h2>Product: <%= carted_product.product.name %></h2>
-            <img src="<%= carted_product.product.images.first.url %>" class="img-responsive">
-            <h2>Quantity: <%= carted_product.order.quantity %></h2>
-            <h2>Price: $<%= carted_product.order.total %></h2>
-          </div>
-        <% end %>
-    </div>
-  <% end %>
-</div>
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+ 
+    <table class="table">
+        <tr>
+          <th>Product Name</th>
+          <th>Quantity</th>
+          <th>Price per Product</th>
+          <th>Remove</th>
+        </tr>
+      <% @order.carted_products.each do |carted_product| %>
+        <tr>
+          <td><%= carted_product.product.name %></td>
+          <td><%= carted_product.quantity %></td>
+          <td><%= carted_product.product.price %></td>
+          <td><%= link_to "Remove", "/carted_products/#{carted_product.id}", method: :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%= button_to "Buy Now", "orders/#{@order.id}", class: "btn btn-success", method: :patch %>
+  </div>
 </div>

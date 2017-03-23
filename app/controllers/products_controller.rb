@@ -8,16 +8,13 @@ class ProductsController < ApplicationController
     else
       @products = Product.all
     end
-    @suppliers = Supplier.all
   end
 
   def show
     @product = Product.find_by(id: params[:id])
-    @suppliers = Supplier.all
   end
 
   def new
-    @suppliers = Supplier.all
     @product = Product.new
   end
 
@@ -31,7 +28,6 @@ class ProductsController < ApplicationController
     redirect_to "/products/#{@product.id}" 
     flash[:success]= "Product created"
     else
-      @suppliers = Supplier.all
       flash[:warning] = "Product NOT Created"
       render :new
     end 
@@ -39,7 +35,6 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find_by(id: params[:id])
-    @suppliers = Supplier.all
   end
 
   def update
