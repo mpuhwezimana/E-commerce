@@ -49,8 +49,17 @@
             <h4 class="price">Item price: <span>$<%= @product.price %></span></h4>
             <% if current_user %>
               <div class="action">
-                <button class="add-to-cart btn btn-default" type="button">add to cart</button>
-                <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+                <%= form_tag "/carted_products", method: :post do %>
+                  <div>
+                    Quantity: <input type="text" name="quantity" placeholder="quantity"><br>
+                  </div>
+                  <div>
+                    <input type="hidden" name="product_id" value="<%= @product.id %>"><br>
+                  </div>
+                  <div>    
+                    <input class="add-to-cart btn btn-default" type="submit" value="Add to cart!" class="btn btn-default">
+                  </div>
+                <% end  %>
               </div>
             <% end %>
           </div>
