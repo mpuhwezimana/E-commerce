@@ -1,16 +1,70 @@
-    
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="first-slide" src="http://shop.scouts.org.uk/images/Product/medium/105536.jpg" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Sign Up to have Apple Acount.</h1>
+              <p>By signing up, you will be able to get your preferances. You will be saving your preferences, and be able to comment and chat with apple store employess.</p>
+              <p><a class="btn btn-lg btn-primary" href="/signup" role="button">Sign up today</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="second-slide" src="http://shop.scouts.org.uk/images/Product/medium/106884.jpg" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Sample Product</h1>
+              <p>Click on the link below to access a random product from our store.</p>
+              <p><a class="btn btn-lg btn-primary" href="/products/random" role="button">Random Product</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="third-slide" src="http://shop.scouts.org.uk/images/Product/medium/107756.jpg" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Chat with Us now</h1>
+              <p>You can chat with us now with this direct chat. Click on the link below to access the chat box.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Chat with us</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>    
+
 <div class="container">
-<div class="row">
   <% @products.each_slice(3) do |three_products| %>
     <div class="row">
-        <% three_products.each do |product| %>
-          <div class="col-md-4">
-            <h2><%= link_to product.name, "/products/#{product.id}" %></h2>
-            <h2>Description: <%= product.description %></h2>
-            <h2>Price: $<%= product.price %></h2>
-          </div>
-        <% end %>
+      <% three_products.each do |product| %>
+        <div class="col-md-4">
+            <div class="product-item">
+              <div class="pi-img-wrapper">
+                <img src="<%= product.image1 %>" class="img-responsive" alt="Berry Lace Dress">
+              </div>
+              <h3><%= link_to product.name, "/products/#{product.id}" %></h3>
+              <div class="pi-price">$<%= product.price %></div>
+              <a href="javascript:;" class="btn add2cart">Add to cart</a>
+              <% if product.created_at > 1.week.ago%>
+                <div class="sticker sticker-new"></div>
+              <% end %>
+            </div>
+        </div>
+      <% end %>
     </div>
   <% end %>
-</div>
 </div>

@@ -18,9 +18,9 @@
     </table>
     <ul>
       <li>Order Number <%= @order.id + 100000 %></li>
-      <li>Subtotal <%= number_to_currency(@order.subtotal) %></li>
-      <li>Tax <%= number_to_currency(@order.tax) %></li>
-      <li>Total <%= number_to_currency(@order.total) %></li>
+      <li>Subtotal: <%= number_to_currency(@order.subtotal) %></li>
+      <li>Tax: <%= number_to_currency(@order.tax) %></li>
+      <li>Total: <%= number_to_currency(@order.total) %></li>
     </ul>    
   </div>
 </div>

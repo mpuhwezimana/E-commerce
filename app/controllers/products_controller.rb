@@ -22,8 +22,11 @@ class ProductsController < ApplicationController
     name = params[:name]
     description = params[:description]
     price = params[:price]
-    supplier = params[:supplier_id]
-    @product = Product.new({name: name, description: description, price: price })
+    supplier = params[:supplier]
+    image1 = params[:image1]
+    image2 = params[:image2]
+    image3 = params[:image3]
+    @product = Product.new({name: name, description: description, price: price, supplier: supplier, image1: image1, image2: image2, image3: image3 })
     if @product.save
     redirect_to "/products/#{@product.id}" 
     flash[:success]= "Product created"
@@ -42,7 +45,10 @@ class ProductsController < ApplicationController
     @product.name = params[:name]
     @product.description = params[:description]
     @product.price = params[:price]
-    @supplier = params[:supplier_id]
+    @product.supplier = params[:supplier]
+    @product.image1 = params[:image1]
+    @product.image2 = params[:image2]
+    @product.image3 = params[:image3]
     if @product.save
       redirect_to "/products/#{@product.id}"
       flash[:info]= "Product updated"

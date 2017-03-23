@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "/", to: 'products#home'
+  get "/", to: 'products#index'
   
   resources :products do
   end
