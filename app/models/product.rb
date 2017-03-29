@@ -1,5 +1,4 @@
 class Product < ApplicationRecord
-  has_many :images
   has_many :orders, through: :carted_product
   has_many :carted_products
   validates :name, presence: { message: "You can't leave Name space empty!" }

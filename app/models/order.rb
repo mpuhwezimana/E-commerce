@@ -3,6 +3,6 @@ class Order < ApplicationRecord
   has_many :products, through: :carted_product
   has_many :carted_products
 
-  validates :quantity, presence: true
-  validates :quantity, numericality: {greater_than: 0}
+  # validates :quantity, presence: true
+  # validates :quantity, numericality: {greater_than: 0}
 end

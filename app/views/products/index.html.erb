@@ -59,7 +59,7 @@
               <h3><%= link_to product.name, "/products/#{product.id}" %></h3>
               <div class="pi-price">$<%= product.price %></div>
               <a href="javascript:;" class="btn add2cart">Add to cart</a>
-              <% if product.created_at > 1.week.ago%>
+              <% if product.created_at > 1.day.ago%>
                 <div class="sticker sticker-new"></div>
               <% end %>
             </div>
