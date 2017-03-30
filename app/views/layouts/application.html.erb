@@ -13,7 +13,7 @@
     <% flash.each do |name, message| %>
       <div class="alert alert-<%= name %>" role="alert"><%= message %></div>
     <%end%>
-    <nav class="navbar navbar-default">
+    <nav style="background-color: purple;" class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -23,24 +23,25 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">Home</a>
+          <a style="color: white;" class="navbar-brand" href="/">Home</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
 
-            <li><a class="white" href="/products">All Products</a></li>
+            <li><a style="color: white;" class="white" href="/products">All Products</a></li>
             <li class="dropdown">
-              <a href="#" class="white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
+              <a style="color: white;" href="#" class="white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="/products">All Products</a></li>
                 <li><a href="/products?sort=asc">Price Lowest To Highest<span class="sr-only">(current)</span></a></li>
                 <li><a href="/products?sort=desc">Price Highest To Lowest<span class="sr-only">(current)</span></a></li>
                 <li><a href="/products?filter=discount">Discount Items<span class="sr-only">(current)</span></a></li>
-                <li><a href="/products/random">Random Product</a></li>
                 <li role="separator" class="divider"></li>
+                <% if current_user %>
                 <li><a href="/products/new">New Product</a></li>
+                <%end%>
               </ul>
             </li>
           </ul>
@@ -54,10 +55,10 @@
 
           <ul class="nav navbar-nav navbar-right">
            <%if current_user %>
-            <li class= "white"><a href="/carted_products">Shop Cart</a></li>
+            <li class= "white"><a style="color: white;" href="/carted_products">Shop Cart</a></li>
             <% end %>
             <li class="dropdown">
-              <a href="#" class="white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User <span class="caret"></span></a>
+              <a style="color: white;" href="#" class="white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User <span class="caret"></span></a>
               <ul class="dropdown-menu">
               <% if current_user%> 
                 <li><a href="logout">Logout</a></li>
@@ -75,6 +76,9 @@
     </nav>
     <div class="container">
   </nav>
+  <br>
+  <br>
+  <br>
       <%= yield %>
     </div>
   </body>

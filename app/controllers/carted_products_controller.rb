@@ -15,7 +15,6 @@ class CartedProductsController < ApplicationController
     order = current_user.orders.find_by(completed:false) || Order.create(user_id: current_user.id, completed: false)
     carted_product = CartedProduct.new(order_id: order.id, product_id: params[:product_id], quantity: params[:quantity])
     carted_product.save
-    jkhjkhj
     redirect_to "/carted_products"
   end
 

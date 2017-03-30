@@ -7,7 +7,6 @@
 
     <th>Product</th>
     <th>Quantity</th>
-    <th>Product_id</th>
     <th>Price</th>
     <th>Image</th>
     <th>Delete Product</th><br>
@@ -17,7 +16,6 @@
     <tr> 
       <td><%= carted_product.product.name %></td>
       <td><%= carted_product.quantity %></td>
-      <td><%= carted_product.product_id %></td>
       <td><%= carted_product.product.price %></td>
       <td><img class="carted_product" class="image" src ="<%= carted_product.product.image1  %>"></td>
       <td><%= link_to "Remove", "/carted_products/#{carted_product.id}", method: :delete %></td>

@@ -1,4 +1,4 @@
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div id="myCarousel" style="width: 100%; height: 10;"  class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -10,8 +10,8 @@
           <img class="first-slide" src="http://shop.scouts.org.uk/images/Product/medium/105536.jpg" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Sign Up to have Apple Acount.</h1>
-              <p>By signing up, you will be able to get your preferances. You will be saving your preferences, and be able to comment and chat with apple store employess.</p>
+              <h1>Get a Scout Shop Account</h1>
+              <p>By signing up, you will be able to buy anything on this web application. Sign up using your email address now.</p>
               <p><a class="btn btn-lg btn-primary" href="/signup" role="button">Sign up today</a></p>
             </div>
           </div>
@@ -20,9 +20,9 @@
           <img class="second-slide" src="http://shop.scouts.org.uk/images/Product/medium/106884.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Sample Product</h1>
-              <p>Click on the link below to access a random product from our store.</p>
-              <p><a class="btn btn-lg btn-primary" href="/products/random" role="button">Random Product</a></p>
+              <h1>Your Shopping Cart!!!</h1>
+              <p>Click on the link below to access your shopping cart. Add some products to your shopping cart too before buying.</p>
+              <p><a class="btn btn-lg btn-primary" href="/carted_products" role="button">Shopping Cart</a></p>
             </div>
           </div>
         </div>
@@ -30,9 +30,9 @@
           <img class="third-slide" src="http://shop.scouts.org.uk/images/Product/medium/107756.jpg" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Chat with Us now</h1>
-              <p>You can chat with us now with this direct chat. Click on the link below to access the chat box.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Chat with us</a></p>
+              <h1>Visit Rwanda Scouts Association Website</h1>
+              <p>Click on the link below to go back to the Rwanda Association Website.</p>
+              <p><a class="btn btn-lg btn-primary" href="http://localhost:3000/" target="_blank"" role="button">Rwanda Scouts</a></p>
             </div>
           </div>
         </div>
@@ -45,7 +45,7 @@
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
-    </div>    
+    </div><br>
 
 <div class="container">
   <% @products.each_slice(3) do |three_products| %>

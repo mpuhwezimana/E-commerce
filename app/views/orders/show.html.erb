@@ -1,7 +1,9 @@
 <div class="row">
   <div class="col-md-2"></div>
   <div class="col-md-8">
-    <h1>Your Order</h1>
+    <h1>Thank you for shopping with us, we will reach out to you soon, 
+    <br>
+    <br> Your Order:</h1>
     <table class="table table-space">
         <tr>
           <th>Product Name</th>
@@ -23,5 +25,5 @@
       <li>Total: <%= number_to_currency(@order.total) %></li>
     </ul>    
   </div>
+  <%= button_to "Continue Shopping", "/products", class: "btn btn-success", method: :get %>
 </div>
-
